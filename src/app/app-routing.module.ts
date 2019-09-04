@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { Page404Component } from './components/page404/page404.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: "", component: LoginComponent},
+  {path: "home", component: HomeComponent}, // TODO: only auth users
+  {path: "**", component: Page404Component}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
