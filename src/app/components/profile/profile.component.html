@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+
+<div class="container text-center p-40 mt-66" *ngIf="user">
+  <div class="form-signin py-5 bg-white">
+    <img class="mb-4" src={{user.data.image_url}} alt="" width="150" height="150" class="rounded-circle">
+    <h1 class="h3 mb-3 font-weight-normal">{{user.data.name}} {{user.data.lastname}}</h1>
+    <div>
+      <p class="p my-3 font-weight-normal">Email: {{user.data.email}}</p>
+      <p class="p my-3 font-weight-normal">Verificación del email: {{user.data.email_verified_at ? 'Sí' : 'Por verificar'}}</p>
+      <p class="p my-3 font-weight-normal">Creación del perfil: {{user.data.created_at}}</p>
+    </div>
+    <button class="btn btn-warning" [routerLink]="['/home']" >Regresar</button>
+  </div>
+</div>

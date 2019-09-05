@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
-  <a class="navbar-brand" routerLink="/home">UCIC</a>
+<nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between stick-top" style="background-color: #afafaf;">
+  <a class="navbar-brand" routerLink="/home">
+    <img src="https://portal.ucic.pe/storage/companies/6/logo.png" alt="ucic-logo" class="logo-img">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active" *ngIf="user">
-        <a class="nav-link" href="#"> Mi perfil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#" [routerLink] ="['/profile']" > Mi perfil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#" (click)="onLogOut()">Cerrar sesión <span class="sr-only">(current)</span></a>

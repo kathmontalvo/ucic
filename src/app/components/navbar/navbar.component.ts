@@ -24,6 +24,5 @@ export class NavbarComponent implements OnInit {
   getUserData(){
     this.userService.getUser()
     .subscribe((user) => this.user = user)
-
   }
 }

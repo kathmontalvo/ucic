@@ -1,17 +1,27 @@
 <app-navbar></app-navbar>
-<div class="container" *ngIf="comments">
-  <div>
-    <form #formLogin ="ngForm" (ngSubmit)="postComment()">
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="Ingresa un comentario" [(ngModel)]="comment.body" name="body">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+<div class="container mt-66" *ngIf="comments">
+  <div class="row">
+    <div class="col-12 d-flex my-3" *ngFor="let comment of comments.data">
+      <div class="col-2 text-right">
+        <img src={{comment.info_user.image_url}} alt={{comment.info_user.image}} class="rounded-circle user-img">
       </div>
-    </form>
-  </div>
-  <div *ngFor="let comment of comments.data">
-    <div>
-      <p>{{comment.body}}</p>
-      <p>{{comment.info_user.name}} </p>
+      <div class="col-10 ml-2">
+        <p><b>{{comment.info_user.name}}</b> dice: </p>
+        <p class="comment">{{comment.body}}</p>
+      </div>
     </div>
   </div>
+</div>
+<div class="container stick-bottom">
+    <div class="row">
+        <form class="col-12 p-4" #formLogin="ngForm" (ngSubmit)="postComment()">
+          <div class="input-group">
+            <input type="text" class="form-control h-45" aria-label="" aria-describedby="basic-addon1"
+              placeholder="Ingresa un comentario" [(ngModel)]="comment.body" name="body">
+            <div class="input-group-append">
+              <button class="btn btn-warning" type="submit">Enviar</button>
+            </div>
+          </div>
+        </form>
+      </div>
 </div>
