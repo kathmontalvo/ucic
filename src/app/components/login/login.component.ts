@@ -23,8 +23,11 @@ export class LoginComponent implements OnInit {
       const token = user.data.token;
       this.authService.setToken(token);
       this.router.navigate(['/home'])
-    }),
-    error=>console.log(error);
+    },
+    (error)=>{
+      console.log(error, 'ghjkasdjasd')
+      alert('Ingresar correo y/o contraseña válidos')
+    });
   }
 
 }
