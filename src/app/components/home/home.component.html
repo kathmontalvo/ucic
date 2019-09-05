@@ -7,21 +7,23 @@
       </div>
       <div class="col-10 ml-2">
         <p><b>{{comment.info_user.name}}</b> dice: </p>
-        <p class="comment">{{comment.body}}</p>
+        <p class="comment mb-1">{{comment.body}}</p>
+        <p class="mt-0 text-right" style="font-size: 12px">{{comment.info_user.created_at}}</p>
+
       </div>
     </div>
   </div>
 </div>
 <div class="container stick-bottom">
-    <div class="row">
-        <form class="col-12 p-4" #formLogin="ngForm" (ngSubmit)="postComment()">
-          <div class="input-group">
-            <input type="text" class="form-control h-45" aria-label="" aria-describedby="basic-addon1"
-              placeholder="Ingresa un comentario" [(ngModel)]="comment.body" name="body">
-            <div class="input-group-append">
-              <button class="btn btn-warning" type="submit">Enviar</button>
-            </div>
-          </div>
-        </form>
+  <div class="row">
+    <form class="col-12 p-4" #formLogin="ngForm" (ngSubmit)="postComment()">
+      <div class="input-group">
+        <input type="text" class="form-control h-45" aria-label="" aria-describedby="basic-addon1"
+          placeholder="Ingresa un comentario" [(ngModel)]="comment.body" name="body">
+        <div class="input-group-append">
+          <button class="btn btn-warning" type="submit">Enviar</button>
+        </div>
       </div>
+    </form>
+  </div>
 </div>
