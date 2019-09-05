@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from '../../services/comments.service'
+import { CommentsInterface } from '../../models/comments-interface'
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,27 @@ import { CommentsService } from '../../services/comments.service'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private commentsData: CommentsService) { }
+  constructor(private commentsData: CommentsService, private location: Location) { }
+  private comments: object;
+  private comment: CommentsInterface = {
+    body: '',
+  }
 
   ngOnInit() {
+    this.getComments();
   }
 
   getComments() {
     this.commentsData.getAllComments()
-    .subscribe(res => console.log(res))
+      .subscribe((comments) => this.comments = comments)
   }
+
+  postComment() {
+    this.commentsData.saveComment(this.comment.body)
+      .subscribe(data => {
+        console.log(data)
+        location.reload();
+      });
+  }
+
 }

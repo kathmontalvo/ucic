@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #f5f5f5 !important;
+  }

@@ -28,11 +28,11 @@ export class CommentsService {
     return (this.user = this.http.get(url, {headers: this.headers}));
   }
 
-  saveComment(input: string) {
+  saveComment(body: string) {
     //TODO: Obtener TOKEN
     //TODO: not null
     const url = "https://ti.ucic.pe/api/set/comment";
-    return this.http.post(url, input, {headers: this.headers})
+    return this.http.post(url, {body}, {headers: this.headers})
     .pipe(map(data => data));
   }
 
