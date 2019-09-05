@@ -11,8 +11,8 @@ import { Location } from '@angular/common'
 export class HomeComponent implements OnInit {
 
   constructor(private commentsData: CommentsService, private location: Location) { }
-  private comments: object;
-  private comment: CommentsInterface = {
+  comments;
+  comment: CommentsInterface = {
     body: '',
   }
 
